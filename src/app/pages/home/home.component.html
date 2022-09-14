@@ -1,0 +1,18 @@
+<div class="home">
+  home works!
+
+  {{ value }}
+
+  <button type="button" (click)="updateValue()">Update</button>
+
+  <h2>Translations: {{ 'Back to login' | translate }}</h2>
+
+  <a [routerLink]="['/user']" routerLinkActive="active">
+    <mat-icon>account_circle</mat-icon>
+    Users Page
+  </a>
+  <a *ngIf="abilityAction.READ | ablePure: subjects.SETTINGS | async"
+    [routerLink]="['/test']" routerLinkActive="active">
+    {{ 'Route Permission' }}
+  </a>
+</div>

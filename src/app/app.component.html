@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+  <span>Standalone Components Example</span>
+  <span class="spacer"></span>
+  <div class="form-row lng">
+    <label> {{ 'Language' | translate }}: </label>
+    <mat-form-field>
+      <mat-select [formControl]="lngControl"
+        (selectionChange)="onUpdateLanguageControl($event!.value)"
+        [panelClass]="'hmi-select'" #mselect>
+        <mat-option value="1" disabled="true"> {{ 'Language' | translate }} </mat-option>
+        <mat-option
+          *ngFor="let lng of languages"
+          [value]="lng?.locale">
+          {{ lng?.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</mat-toolbar>
+<main class="mat-app-background mat-elevation-z2 content">
+  <router-outlet></router-outlet>
+</main>
